@@ -25,7 +25,7 @@ def upgrade():
     sa.Column('hero_name', sa.String(length=150), nullable=True),
     sa.Column('phone_num', sa.String(length=15), nullable=False),
     sa.Column('email_add', sa.String(length=150), nullable=False),
-    sa.Column('date_created', sa.DateTime(), nullable=False),
+    sa.Column('date_created', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

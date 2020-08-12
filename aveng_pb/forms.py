@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Email
 
 class PhoneBookForm(FlaskForm):
@@ -8,4 +8,10 @@ class PhoneBookForm(FlaskForm):
     hero_name = StringField('Hero Name', validators=[DataRequired()])
     phone_num = StringField('Phone Number', validators=[DataRequired()])
     email_add = StringField('Email Address', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField()
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField()

@@ -7,10 +7,17 @@
 
 <img src="../static/avengers.jfif" alt="Avengers" class="avengPhoto">
 
+<h2>Welcome, {{current_user.hero_name }}</h2>
+
 <h2>With so many super-powered people coming to the fore, we need a way to keep in touch. Please go to the link below to add your contact information!</h2>
 
-<a href="{{ url_for('phone_book') }}" class="link1">Avengers Phone Book</a>
+<a href="{{ url_for('phone_book') }}" class="link1">Avengers Phone Book - Register</a>
 <br>
 <br>
-
+<a href="{{ url_for('login') }}" class="link1">Login Here</a>
+<br>
+<br>
+<a href="{{ url_for('logout') }}" class="link1">Logout Here</a>
+<br>
+<br>
 {% endblock content %}

@@ -24,7 +24,13 @@
             {{ form.email_add.label }}
             {{ form.email_add(class="form-control", placeholder="Email Address") }}
         </fieldset>
+        <fieldset>
+            {{ form.password.label }}
+            {{ form.password(class="form-control", placeholder="Password") }}
+        </fieldset>
         {{ form.submit(class="btn btn-dark") }}
     </div>
 </form>
+
+<a href="{{ url_for('home') }}" class="link1">Click here to return home</a>
 {% endblock content %}
