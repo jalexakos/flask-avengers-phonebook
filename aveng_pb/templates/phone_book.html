@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset>
+            {{ form.first_name.label }}
+            {{ form.first_name(class="form-control", placeholder="First Name") }}
+        </fieldset>
+        <fieldset>
+            {{ form.last_name.label }}
+            {{ form.last_name(class="form-control", placeholder="Last Name") }}
+        </fieldset>
+        <fieldset>
+            {{ form.hero_name.label }}
+            {{ form.hero_name(class="form-control", placeholder="Hero Name") }}
+        </fieldset>
+        <fieldset>
+            {{ form.phone_num.label }}
+            {{ form.phone_num(class="form-control", placeholder="Phone Number") }}
+        </fieldset>
+        <fieldset>
+            {{ form.email_add.label }}
+            {{ form.email_add(class="form-control", placeholder="Email Address") }}
+        </fieldset>
+        {{ form.submit(class="btn btn-dark") }}
+    </div>
+</form>
+{% endblock content %}

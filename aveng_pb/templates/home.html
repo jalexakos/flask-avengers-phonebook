@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header>
+    <h1 class="header-text">An Avengers Phonebook</h1>
+</header>
+
+<img src="../static/avengers.jfif" alt="Avengers" class="avengPhoto">
+
+<h2>With so many super-powered people coming to the fore, we need a way to keep in touch. Please go to the link below to add your contact information!</h2>
+
+<a href="{{ url_for('phone_book') }}" class="link1">Avengers Phone Book</a>
+<br>
+<br>
+
+{% endblock content %}

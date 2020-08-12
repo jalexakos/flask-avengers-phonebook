@@ -1,0 +1,18 @@
+.header-text {
+    text-align: center;
+    margin: 2% auto;
+}
+
+.avengPhoto {
+    display: block;
+    text-align: center;
+    margin: 2% auto;
+    width: 40%;
+    height: 30%;
+}
+
+.link1 {
+    text-align: center;
+    margin: 2% auto;
+    font-size: 120%;
+}
