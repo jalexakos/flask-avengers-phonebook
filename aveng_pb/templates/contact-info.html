@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Hi {{ current_user.hero_name }}</h2>
+
+{% if current_user.is_authenticated %}
+
+{% for contact in contacts %}
+<div class="container">
+    <h3>
+        <a href="{{ url_for('contact_detail',phonebook_id=contact.id) }}">{{ contact.hero_name }}</a>
+    </h3>
+    <br>
+    <p>{{ contact.phone_num }}</p>
+    <br>
+    <p>{{ contact.email_add }}</p>
+</div>
+{% endfor %}
+{% else %}
+<h2>This is for Avengers only.</h2>
+{% endif %}
+
+{% endblock content %}

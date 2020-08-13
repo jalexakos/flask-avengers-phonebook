@@ -35,6 +35,52 @@ def phone_book():
 
     return render_template('phone_book.html', form=form)
 
+# Contact Info Page
+@app.route('/contact-info')
+@login_required
+def contact_info():
+    contacts = PhoneBook.query.all()
+    return render_template('contact-info.html', contacts=contacts)
+
+# Retrieving Contact Info Page
+@app.route('/contact-details/<int:phonebook_id>')
+@login_required
+def contact_detail(phonebook_id):
+    contact_det = PhoneBook.query.get_or_404(phonebook_id)
+    return render_template('contact-details.html',contact_det=contact_det)
+
+# Updating Contact Info 
+@app.route('/contact-details/update/<int:phonebook_id>', methods=['GET','POST'])
+@login_required
+def contact_update(phonebook_id):
+    contact_det = PhoneBook.query.get_or_404(phonebook_id)
+    update_det = PhoneBookForm()
+
+    if request.method == 'POST' and update_det.validate():
+        hero_name = update_det.hero_name.data
+        phone_num = update_det.phone_num.data
+        email_add = update_det.email_add.data
+        user_id = current_user.id
+
+        contact_det.hero_name = hero_name
+        contact_det.phone_num = phone_num
+        contact_det.email_add = email_add
+        contact_det.phonebook_id = user_id
+
+        db.session.commit()
+        return redirect(url_for('contact_update', phonebook_id=phonebook_id))
+    
+    return render_template('contact_update.html', update_det=update_det)
+
+# Deleting Contact Info
+@app.route('/contact-details/delete/<int:phonebook_id>', methods=['POST'])
+@login_required
+def contact_delete(phonebook_id):
+    contact_det = PhoneBook.query.get_or_404(phonebook_id)
+    db.session.delete(contact_det)
+    db.session.commit()
+    return redirect(url_for('home'))
+
 # Login Page
 @app.route('/login', methods=['GET','POST'])
 def login():

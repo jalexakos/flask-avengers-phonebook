@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Please update your Contact Info below.</h2>
+    <form action="" method="POST">
+        {{ update_det.hidden_tag() }}
+        <div class="form-group">
+            <fieldset>
+                {{ update_det.hero_name.label }}
+                {{ update_det.hero_name(class="form-control", placeholder="Hero Name") }}
+            </fieldset>
+            <fieldset>
+                {{ update_det.phone_num.label }}
+                {{ update_det.phone_num(class="form-control", placeholder="Phone Number") }}
+            </fieldset>
+            <fieldset>
+                {{ update_det.email_add.label }}
+                {{ update_det.email_add(class="form-control", placeholder="Email Address") }}
+            </fieldset>
+            {{ update_det.submit(class="btn btn-success") }}
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
