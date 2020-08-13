@@ -11,6 +11,7 @@ def home():
 
 # Phone Book Entry Page
 @app.route('/phone-book', methods=['GET','POST'])
+@login_required
 def phone_book():
     form = PhoneBookForm()
     if request.method == 'POST' and form.validate():
